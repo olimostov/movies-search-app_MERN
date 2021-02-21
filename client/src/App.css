@@ -27,6 +27,7 @@ input {
   width: 35px;
   height: 35px;
   border-radius: 50%;
+  border: none;
 }
 .bookmark-btn:hover {
   background-color: rgba(255, 255, 255, 0.5);
@@ -74,8 +75,8 @@ input {
   width: 100% !important;
   height: 100% !important;
 }
-a .card-content {
-  text-decoration-color: #ef6c00;
+.card-content p {
+  font-size: 0.8rem;
 }
 .card-title {
   font-size: 1.2rem !important;
