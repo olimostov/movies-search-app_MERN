@@ -1,0 +1,115 @@
+.App {
+  /* text-align: center; */
+  color: #cfd8dc;
+  min-height: 100vh;
+}
+input {
+  color: #cfd8dc;
+}
+.card {
+  color: #cfd8dc;
+  border: 1px solid #263238;
+}
+.fab {
+  color: #cfd8dc;
+}
+.bookmark-btn {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  right: 15px;
+  bottom: -18px;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+.bookmark-btn:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.fa-bookmark {
+  font-size: 20px;
+  color: #ef6c00;
+}
+
+.fa-star {
+  color: #fb8c00;
+  font-size: 13px;
+}
+.App-logo {
+  /* height: 40vmin; */
+  /* pointer-events: none; */
+  /* width: 30px; */
+  /* height: 20px; */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+/* .App-link {
+  color: #61dafb;
+} */
+.card {
+  /* max-width: 50% !important; */
+  /* max-height: 20% !important; */
+}
+.card-image {
+  width: 100% !important;
+  height: 100% !important;
+}
+a .card-content {
+  text-decoration-color: #ef6c00;
+}
+.card-title {
+  font-size: 1.2rem !important;
+  font-weight: bold !important;
+  color: #fff;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.input-field {
+  margin: 60px 0;
+}
+/* label focus color */
+.input-field input:focus + label,
+.fa-searchengin:focus {
+  color: #ef6c00 !important;
+}
+/* label underline focus color */
+.row .input-field input:focus {
+  border-bottom: 1px solid #ef6c00 !important;
+  box-shadow: 0 1px 0 0 #ef6c00 !important;
+}
+.input-field .prefix.active {
+  color: #ef6c00;
+}
+
+.top250-header {
+  width: 60%;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ef6c00;
+}
