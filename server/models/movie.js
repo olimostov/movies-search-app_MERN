@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
-const movieSchema = new mongoose.Schema({
-  title: String,
-  genre: String,
-  description: String
-});
+const movieSchema = new mongoose.Schema({}, { strict: false });
 
 // Exporting the whole fruits array
 // and it will be named whatever we require as

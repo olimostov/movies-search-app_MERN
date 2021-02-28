@@ -1,34 +1,72 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import M from 'materialize-css';
+
 import film from '../assets/film.svg';
+
 const MovieCard = ({ movie, key }) => {
+  M.AutoInit();
+  M.Modal.init();
+
+  const genresList = arr => {
+    const genres = arr.map(genre => {
+      return genre.name.join(', ');
+    });
+    console.log('genres :>> ', genres);
+    return genres;
+  };
+  const bookmarkMovie = e => {
+    e.preventDefault();
+    const bookmarkedMovie = fetch('http://localhost:9000/api/v1/movies/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(movie)
+    }).then(() => {
+      console.log('movie has added');
+      console.log('movie: ', JSON.stringify(movie));
+    });
+  };
   return (
     <div key={key} className='col s12 m4 l3'>
       <div className='card blue-grey darken-2'>
-        <div className='card-image'>
-          <button className='bookmark-btn'>
-            <i className='far fa-bookmark'></i>
-          </button>
+        <div className='card-image waves-block waves-light'>
           {movie.poster_path ? (
             <img
+              className='activator'
               src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}`}
             />
           ) : (
-            <img src={film} className='' />
+            <img src={film} className='activator' />
           )}
         </div>
-        <div className='card-content left-align'>
-          <span className='card-title'>{movie.original_title}</span>
+        <div className='card-reveal'>
+          <span className='card-title'>
+            <i className='fas fa-chevron-down right'></i>
+            {movie.original_title}
+          </span>
+
           <p>
             Ratings: {movie.vote_average} <i className='fas fa-star '></i>
           </p>
-          <p>Genre: Drama</p>
+          <p>Genre: {movie.genres}</p>
+          {/* <p>Genre: Genre</p> */}
           <p>Year: {movie.release_date}</p>
-
-          <a
-            href={`https://www.themoviedb.org/movie/${movie.id}`}
-            target='_blank'
-          >
-            Read More
-          </a>
+          <p>
+            <a
+              href={`https://www.themoviedb.org/movie/${movie.id}`}
+              target='_blank'
+            >
+              Read More
+            </a>
+          </p>
+          <div className='card-action'>
+            <button className='btn movie-btn' onClick={bookmarkMovie}>
+              Bookmark
+            </button>
+          </div>
         </div>
       </div>
     </div>

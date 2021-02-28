@@ -6,6 +6,9 @@
 input {
   color: #cfd8dc;
 }
+.card-title {
+  color: #fff !important;
+}
 .card {
   color: #cfd8dc;
   border: 1px solid #263238;
@@ -13,7 +16,7 @@ input {
 .fab {
   color: #cfd8dc;
 }
-.bookmark-btn {
+/* .bookmark-btn {
   display: flex;
 
   align-items: center;
@@ -28,15 +31,27 @@ input {
   height: 35px;
   border-radius: 50%;
   border: none;
+} */
+.card-image {
+  position: relative;
 }
-.bookmark-btn:hover {
-  background-color: rgba(255, 255, 255, 0.5);
-}
-.fa-bookmark {
-  font-size: 20px;
-  color: #ef6c00;
+.card-image:hover {
 }
 
+/* .bookmark-btn:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+} */
+.fa-bookmark {
+  position: absolute;
+  top: 1px;
+  right: 5px;
+  font-size: 1.5rem;
+  color: #ef6c00;
+  transition: all 0.2s ease-out;
+}
+.fa-bookmark:hover {
+  color: #fb8c00;
+}
 .fa-star {
   color: #fb8c00;
   font-size: 13px;
@@ -71,10 +86,10 @@ input {
   /* max-width: 50% !important; */
   /* max-height: 20% !important; */
 }
-.card-image {
+/* .card-image {
   width: 100% !important;
   height: 100% !important;
-}
+} */
 .card-content p {
   font-size: 0.8rem;
 }
@@ -113,4 +128,70 @@ input {
   width: 60%;
   padding-bottom: 1rem;
   border-bottom: 1px solid #ef6c00;
+}
+.fa-chevron-down,
+.fa-plus-square {
+  color: #fb8c00 !important;
+}
+.card-reveal {
+  width: 100% !important;
+  height: 100% !important;
+  background-color: rgba(69, 90, 100, 0.9) !important;
+}
+#lists-modal {
+  z-index: 10 !important;
+}
+.card-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none !important;
+}
+.movie-btn {
+  background: none !important;
+  box-shadow: none !important;
+  border: 1px solid rgba(160, 160, 160, 0.5);
+  background: rgba(160, 160, 160, 0.2);
+}
+.card-action {
+  background: none !important;
+  box-shadow: none !important;
+}
+.movie-btn:hover {
+  color: #fb8c00;
+  background: rgba(160, 160, 160, 0.5);
+  border: 1px solid rgba(251, 140, 0, 0.5);
+  /* border-radius: 0px; */
+  /* box-shadow: none; */
+}
+.delete-btn {
+  display: block;
+  margin: 0.75rem;
+}
+.collapsible-header {
+  border-bottom: 1px solid rgba(160, 160, 160, 0.5);
+  border: none !important;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bookmarked-image {
+  display: inline;
+}
+.bookmarked-image > img {
+  /* position: relative; */
+  /* height: 90px !important; */
+  /* position: relative; */
+
+  height: 150px;
+  display: inline;
+}
+.collapsible {
+  background-color: inherit !important;
+}
+.collapsible-body span {
+  text-align: justify;
+}
+.fa-star {
+  font-size: 0.8rem !important;
 }
