@@ -5,7 +5,7 @@ import M from 'materialize-css';
 
 import film from '../assets/film.svg';
 
-const MovieCard = ({ movie, key }) => {
+const MovieCard = ({ movie }) => {
   M.AutoInit();
   M.Modal.init();
 
@@ -23,14 +23,15 @@ const MovieCard = ({ movie, key }) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(movie)
+      body: JSON.stringify(movie, { _id: 'movie.id' })
     }).then(() => {
       console.log('movie has added');
-      console.log('movie: ', JSON.stringify(movie));
+
+      console.log('movie: ', bookmarkedMovie);
     });
   };
   return (
-    <div key={key} className='col s12 m4 l3'>
+    <div className='col s12 m4 l3'>
       <div className='card blue-grey darken-2'>
         <div className='card-image waves-block waves-light'>
           {movie.poster_path ? (
@@ -51,7 +52,12 @@ const MovieCard = ({ movie, key }) => {
           <p>
             Ratings: {movie.vote_average} <i className='fas fa-star '></i>
           </p>
-          <p>Genre: {movie.genres}</p>
+          <p>
+            Genre:{' '}
+            {movie.genres.map(genreObj => (
+              <span key={genreObj.id}>{genreObj.name}</span>
+            ))}
+          </p>
           {/* <p>Genre: Genre</p> */}
           <p>Year: {movie.release_date}</p>
           <p>

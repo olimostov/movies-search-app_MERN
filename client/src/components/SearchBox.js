@@ -1,17 +1,21 @@
 import { useState } from 'react';
 
-const SearchBox = ({ onAdd }) => {
-  const [searchInput, setSearchInput] = useState('');
+const SearchBox = ({ onSearchSubmit, onSearchInputChange, searchTerm }) => {
+  // const [searchInput, setSearchInput] = useState('');
 
   const onSubmit = e => {
     e.preventDefault();
 
-    if (!searchInput) {
-      alert('Please provide a movie title');
-      return;
+    // if (!searchInput) {
+    //   alert('Please provide a movie title');
+    //   return;
+    // }
+
+    if (onSearchSubmit) {
+      onSearchSubmit();
     }
-    onAdd(searchInput);
-    setSearchInput('');
+
+    // setSearchInput('');
   };
   return (
     <form className='container' onSubmit={onSubmit}>
@@ -24,9 +28,10 @@ const SearchBox = ({ onAdd }) => {
                 type='text'
                 id='autocomplete-input'
                 className='autocomplete'
-                value={searchInput}
+                value={searchTerm}
                 onChange={e => {
-                  setSearchInput(e.target.value);
+                  onSearchInputChange(e.target.value);
+                  // setSearchInput(e.target.value);
                 }}
               />
               <label htmlFor='autocomplete-input'>Search for a movie</label>
