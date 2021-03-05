@@ -25,6 +25,7 @@ const SearchBox = ({ onSearchSubmit, onSearchInputChange, searchTerm }) => {
             <div className='input-field col s12'>
               <i className='fab fa-searchengin prefix'></i>
               <input
+                autocomplete='off'
                 type='text'
                 id='autocomplete-input'
                 className='autocomplete'

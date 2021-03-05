@@ -28,3 +28,5 @@ function useFetch(url, options) {
 
   return { ...status, fetchNow };
 }
+
+export default useFetch;

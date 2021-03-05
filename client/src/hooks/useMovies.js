@@ -30,8 +30,6 @@ export const useMovies = searchTerm => {
         return res.json();
       })
       .then(data => {
-        console.log('Home fetch output: ', data);
-        // data.results.()
         console.log('Got movies list from API :>> ', data.results);
         return data.results;
       })
@@ -40,15 +38,15 @@ export const useMovies = searchTerm => {
           console.log('Starting to load each movie in a loop...');
           for (let i = 0; i < data.length; i++) {
             const oneMovie = data[i];
-            console.log(`Loading movie ${oneMovie.id}...`);
+            // console.log(`Loading movie ${oneMovie.id}...`);
             const movieDataApiResult = await fetch(
               `https://api.themoviedb.org/3/movie/${oneMovie.id}?api_key=${apiKey}&language=en-US`
             );
             const movieData = await movieDataApiResult.json();
-            console.log(
-              `JSON-decoded the API response for ${oneMovie.id}`,
-              movieData
-            );
+            // console.log(
+            //   `JSON-decoded the API response for ${oneMovie.id}`,
+            //   movieData
+            // );
             oneMovie.movieData = movieData;
           }
           resolve(data);

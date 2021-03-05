@@ -3,6 +3,16 @@
   color: #cfd8dc;
   min-height: 100vh;
 }
+.progress .indeterminate {
+  max-width: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ef6c00;
+}
+.progress {
+  background-color: #37474f;
+}
 input {
   color: #cfd8dc;
 }
