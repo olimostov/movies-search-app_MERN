@@ -1,20 +1,19 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+// import moment from 'moment';
 import M from 'materialize-css';
 
 import film from '../assets/film.svg';
 
 const MovieCard = ({ movie }) => {
   M.AutoInit();
-  M.Modal.init();
 
   const genresList = arr => {
+    console.log('movie :>> ', movie);
     const genres = arr.map(genre => {
-      return genre.name.join(', ');
+      return genre.name;
     });
-    console.log('genres :>> ', genres);
-    return genres;
+    return genres.join(', ');
   };
   const bookmarkMovie = e => {
     e.preventDefault();
@@ -52,12 +51,7 @@ const MovieCard = ({ movie }) => {
           <p>
             Ratings: {movie.vote_average} <i className='fas fa-star '></i>
           </p>
-          <p>
-            Genre:{' '}
-            {movie.genres.map(genreObj => (
-              <span key={genreObj.id}>{genreObj.name}</span>
-            ))}
-          </p>
+          <p>Genre: {genresList(movie.genres)}</p>
           {/* <p>Genre: Genre</p> */}
           <p>Year: {movie.release_date}</p>
           <p>
