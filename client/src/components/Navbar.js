@@ -13,10 +13,9 @@ const Navbar = () => {
               <Link to='/top250'>Top 250</Link>
             </li>
             <li>
-              <Link to='/lists'>My Lists</Link>
-            </li>
-            <li>
-              <Link to='collapsible.html'>JavaScript</Link>
+              <Link to='/bookmarked' active='true'>
+                Bookmarked
+              </Link>
             </li>
           </ul>
         </div>
