@@ -7,7 +7,6 @@ const Top250 = () => {
   const apiEndPoint = process.env.REACT_APP_TOP250_END_POINT;
   console.log('apiEndPoint:', apiEndPoint);
   const apiKey = process.env.REACT_APP_API_KEY;
-  console.log('apiKey:', apiKey);
 
   useEffect(() => {
     const getTop = async () => {
