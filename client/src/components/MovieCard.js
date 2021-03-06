@@ -18,16 +18,17 @@ const MovieCard = ({ movie }) => {
   };
   const bookmarkMovie = e => {
     e.preventDefault();
-    const bookmarkedMovie = fetch('http://localhost:9000/api/v1/movies/', {
+    const addedMovie = fetch('http://localhost:9000/api/v1/movies/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(movie, { _id: 'movie.id' })
+      // body: JSON.stringify(movie)
+      body: JSON.stringify({ ...movie, ref_id: movie.id })
+      // body: JSON.stringify(movie.id)
     }).then(() => {
-      console.log('movie has added');
-
-      console.log('movie: ', bookmarkedMovie);
+      console.log('addedMovie :>> ', addedMovie);
+      console.log('movie added :>> ');
     });
   };
 

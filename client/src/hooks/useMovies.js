@@ -1,36 +1,27 @@
 import { useEffect, useState } from 'react';
-import { useFetch } from './useFetch';
 
 const apiKey = process.env.REACT_APP_API_KEY;
-
-const fetchMovieData = async movie => {
-  // console.log('in fetch movie data');
-  const res = await fetch(
-    `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${apiKey}&language=en-US`
-  );
-  const data = await res.json();
-  console.log('data:', data);
-  return data;
-};
 
 export const useMovies = searchTerm => {
   const [lastSearchTermApiCalled, setLastSearchTermApiCalled] = useState(null);
   const [apiResults, setApiResults] = useState(null);
+  const [totalResults, setTotalResults] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  // const { loading, error, data, fetchNow } = useFetch();
+  // SEARCH MOVIE
+  const searchEndPoint = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchTerm}`;
+  // TOP250 SEARCH
+  const top250EndPoint = process.env.REACT_APP_TOP250_END_POINT;
 
-  if (searchTerm !== '' && searchTerm !== lastSearchTermApiCalled) {
-    setApiResults(null);
-    setLastSearchTermApiCalled(searchTerm);
-
-    fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchTerm}&include_adult=false`
-    )
+  const nextPage = pageNumber => {};
+  const fetchData = url => {
+    fetch(url)
       .then(res => {
         return res.json();
       })
       .then(data => {
-        console.log('Got movies list from API :>> ', data.results);
+        console.log('Got movies list from API :>> ', data);
+        setTotalResults(data.total_results);
         return data.results;
       })
       .then(data => {
@@ -43,10 +34,6 @@ export const useMovies = searchTerm => {
               `https://api.themoviedb.org/3/movie/${oneMovie.id}?api_key=${apiKey}&language=en-US`
             );
             const movieData = await movieDataApiResult.json();
-            // console.log(
-            //   `JSON-decoded the API response for ${oneMovie.id}`,
-            //   movieData
-            // );
             oneMovie.movieData = movieData;
           }
           resolve(data);
@@ -56,6 +43,12 @@ export const useMovies = searchTerm => {
         console.log('REACHED THE END OF ALL FETCHING!!!', data);
         setApiResults(data);
       });
+  };
+
+  if (searchTerm !== '' && searchTerm !== lastSearchTermApiCalled) {
+    setApiResults(null);
+    setLastSearchTermApiCalled(searchTerm);
+    fetchData(searchEndPoint);
   }
 
   const isLoading = searchTerm !== '' && apiResults === null;
