@@ -19,12 +19,12 @@ const Navbar = () => {
             </a>
             <ul id='nav-mobile' className='right hide-on-med-and-down'>
               <li>
-                <NavLink exact activeClassName='active' to='/top250'>
+                <NavLink exact activeClassName='active-page' to='/top250'>
                   Top 250
                 </NavLink>
               </li>
               <li>
-                <NavLink exact activeClassName='active' to='/bookmarked'>
+                <NavLink exact activeClassName='active-page' to='/bookmarked'>
                   Bookmarked
                 </NavLink>
               </li>
