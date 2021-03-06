@@ -57,7 +57,10 @@ const Bookmarked = () => {
                 <div className='collapsible-header blue-grey darken-2'>
                   <div>
                     <i className='fas fa-film'> </i>
-                    {index + 1} {movie.original_title}
+                    {index + 1}{' '}
+                    {movie.original_language !== 'en'
+                      ? `${movie.title} (${movie.original_title})`
+                      : movie.original_title}
                   </div>{' '}
                   <div>
                     Ratings: {movie.vote_average}{' '}
