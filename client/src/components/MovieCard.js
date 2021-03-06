@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-// import moment from 'moment';
+
+import moment from 'moment';
 import M from 'materialize-css';
 
 import film from '../assets/film.svg';
@@ -29,6 +30,12 @@ const MovieCard = ({ movie }) => {
       console.log('movie: ', bookmarkedMovie);
     });
   };
+
+  const dateFormatter = dateStr => {
+    let date = new Date(dateStr);
+    return moment(date).format('LL');
+  };
+
   return (
     <div className='col s12 m4 l3'>
       <div className='card blue-grey darken-2'>
@@ -45,23 +52,31 @@ const MovieCard = ({ movie }) => {
         <div className='card-reveal'>
           <span className='card-title'>
             <i className='fas fa-chevron-down right'></i>
-            {movie.original_title}
-          </span>
-
-          <p>
-            Ratings: {movie.vote_average} <i className='fas fa-star '></i>
-          </p>
-          <p>Genre: {genresList(movie.genres)}</p>
-          {/* <p>Genre: Genre</p> */}
-          <p>Year: {movie.release_date}</p>
-          <p>
             <a
               href={`https://www.themoviedb.org/movie/${movie.id}`}
               target='_blank'
             >
-              Read More
+              <span>{movie.original_title}</span>
             </a>
+          </span>
+
+          <p>
+            <span className='movie-data'>
+              Ratings: {movie.vote_average} <i className='fas fa-star '></i>
+            </span>
           </p>
+          <p>
+            Genre:{' '}
+            <span className='movie-data'>{genresList(movie.genres)}</span>
+          </p>
+          {/* <p>Genre: Genre</p> */}
+          <p>
+            Released:
+            <span className='movie-data'>{` ${dateFormatter(
+              movie.release_date
+            )}`}</span>
+          </p>
+
           <div className='card-action'>
             <button className='btn movie-btn' onClick={bookmarkMovie}>
               Bookmark

@@ -16,32 +16,24 @@
 input {
   color: #cfd8dc;
 }
-.card-title {
+.card-title a {
   color: #fff !important;
 }
 .card {
   color: #cfd8dc;
   border: 1px solid #263238;
 }
+.card-title a:hover {
+  color: #fb8c00 !important;
+}
+span.movie-data {
+  color: #fff;
+  font-weight: 500;
+}
 .fab {
   color: #cfd8dc;
 }
-/* .bookmark-btn {
-  display: flex;
 
-  align-items: center;
-  justify-content: center;
-
-  position: absolute;
-  right: 15px;
-  bottom: -18px;
-  z-index: 1;
-  background-color: rgba(255, 255, 255, 0.2);
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  border: none;
-} */
 .card-image {
   position: relative;
 }
