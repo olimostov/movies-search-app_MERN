@@ -46,9 +46,9 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.get('/:id', async (req, res, next) => {
+router.get('/:_id', async (req, res, next) => {
   try {
-    const foundMovie = await Movie.findById(req.params.id);
+    const foundMovie = await Movie.findById(req.params._id);
     res.json({
       status: {
         code: 200,
@@ -61,7 +61,7 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:_id', async (req, res) => {
   try {
     const updatedMovie = await Movie.findByIdAndUpdate(
       req.params.id,
@@ -81,9 +81,9 @@ router.put('/:id', async (req, res) => {
 });
 
 // Delete route
-router.delete('/:id', async (req, res) => {
+router.delete('/:_id', async (req, res) => {
   try {
-    const deletedMovie = await Movie.findByIdAndRemove(req.params.id);
+    const deletedMovie = await Movie.findByIdAndRemove(req.params._id);
     res.json({
       status: {
         code: 200,
