@@ -3,6 +3,13 @@
   color: #cfd8dc;
   min-height: 100vh;
 }
+.sidenav a {
+  color: #cfd8dc !important;
+}
+.sidenav a:hover {
+  color: #fff !important;
+  background: #263238 !important;
+}
 .progress .indeterminate {
   max-width: 75%;
   display: flex;
@@ -58,12 +65,6 @@ span.movie-data {
   color: #fb8c00;
   font-size: 13px;
 }
-.App-logo {
-  /* height: 40vmin; */
-  /* pointer-events: none; */
-  /* width: 30px; */
-  /* height: 20px; */
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -81,17 +82,7 @@ span.movie-data {
   font-size: calc(10px + 2vmin);
   color: white;
 }
-/* .App-link {
-  color: #61dafb;
-} */
-.card {
-  /* max-width: 50% !important; */
-  /* max-height: 20% !important; */
-}
-/* .card-image {
-  width: 100% !important;
-  height: 100% !important;
-} */
+
 .card-content p {
   font-size: 0.8rem;
 }
@@ -181,10 +172,6 @@ span.movie-data {
   display: inline;
 }
 .bookmarked-image > img {
-  /* position: relative; */
-  /* height: 90px !important; */
-  /* position: relative; */
-
   height: 150px;
   display: inline;
 }
@@ -196,4 +183,9 @@ span.movie-data {
 }
 .fa-star {
   font-size: 0.8rem !important;
+}
+.active {
+  background-color: #cd5d00;
+  color: #fff;
+  font-weight: 600;
 }
